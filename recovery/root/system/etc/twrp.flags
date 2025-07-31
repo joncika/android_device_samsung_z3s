@@ -6,8 +6,8 @@
 
 /system_image	  emmc		/dev/block/bootdevice/by-name/system		flags=backup=1;flashimg=1
 /odm_image	      emmc		/dev/block/bootdevice/by-name/odm		    flags=backup=1;flashimg=1;display="ODM Image"
-/product_image	    emmc		/dev/block/bootdevice/by-name/product		flags=backup=1;flashimg=1;display="Product Image"
-/vendor_image	    emmc		/dev/block/bootdevice/by-name/vendor		flags=backup=1;flashimg=1
+/product_image	      emmc		/dev/block/bootdevice/by-name/product		flags=backup=1;flashimg=1;display="Product Image"
+/vendor_image	      emmc		/dev/block/bootdevice/by-name/vendor		flags=backup=1;flashimg=1
 
 /cache		      ext4		/dev/block/bootdevice/by-name/cache
 /efs		      ext4		/dev/block/bootdevice/by-name/efs		  flags=backup=1;display="EFS"
