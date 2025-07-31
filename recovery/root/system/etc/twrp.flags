@@ -21,8 +21,8 @@
 /prism_image          emmc		/dev/block/bootdevice/by-name/prism		  flags=backup=1;flashimg=1;display="Prism Image"
 
 # Samsung ODE (Knox DualDAR)
-/keydata            ext4		/dev/block/bootdevice/by-name/keydata		flags=backup=1;display="Keydata";wipeduringfactoryreset
-/keyrefuge          ext4		/dev/block/bootdevice/by-name/keyrefuge		flags=backup=1;display="Keyrefuge";wipeduringfactoryreset
+/keydata             ext4		/dev/block/bootdevice/by-name/keydata		flags=backup=1;display="Keydata";wipeduringfactoryreset
+/keyrefuge           ext4		/dev/block/bootdevice/by-name/keyrefuge		flags=backup=1;display="Keyrefuge";wipeduringfactoryreset
 
 # Removable partitions
 /external_sd	auto		/dev/block/mmcblk0p1	/dev/block/mmcblk0	flags=display="Micro SD Card";storage;wipeingui;removable
