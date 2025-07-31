@@ -56,6 +56,7 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     efs \
     keydata \
     keyrefuge \
+    linkerconfig \
     metadata \
     omr \
     optics \
@@ -124,7 +125,6 @@ RECOVERY_SDCARD_ON_DATA := true
 TARGET_USES_MKE2FS := true
 
 # TWRP specific build flags
-RECOVERY_VARIANT := twrp
 TW_USE_TOOLBOX := true
 TW_INCLUDE_CRYPTO := false
 TW_INCLUDE_CRYPTO_FBE := false
@@ -132,7 +132,6 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := false
 TARGET_OTA_ASSERT_DEVICE := z3s,z3sxxx
 BOARD_SUPPRESS_SECURE_ERASE := true
 TARGET_USES_64_BIT_BINDER := true
-ALLOW_MISSING_DEPENDENCIES=true
 TW_DEVICE_VERSION := JohnnyXT
 TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
