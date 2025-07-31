@@ -11,7 +11,7 @@
 
 /cache		      ext4		/dev/block/bootdevice/by-name/cache
 /efs		      ext4		/dev/block/bootdevice/by-name/efs		  flags=backup=1;display="EFS"
-/sec_efs	      ext4		/dev/block/bootdevice/by-name/sec_efs		   flags=backup=1;display="Sec EFS"
+/sec_efs	      ext4		/dev/block/bootdevice/by-name/sec_efs		  flags=backup=1;display="Sec EFS"
 /data                 f2fs              /dev/block/bootdevice/by-name/userdata            flags=encryptable=footer;length=-20480
 /omr		      ext4		/dev/block/bootdevice/by-name/omr		      flags=wipeingui;display="OMR"
 /optics		      ext4		/dev/block/bootdevice/by-name/optics		  flags=wipeingui;display="Optics"
