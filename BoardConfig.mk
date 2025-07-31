@@ -3,6 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# 12.1 Manifest Requirements
+ALLOW_MISSING_DEPENDENCIES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
@@ -18,12 +22,17 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
-# Bootloader
+# Platform
+DEVICE_CODENAME := z3s
+DEVICE_PATH := device/samsung/$(DEVICE_CODENAME)
+BOARD_VENDOR := samsung
+TARGET_BOARD_PLATFORM := exynos990
+TARGET_BOARD_PLATFORM_GPU := mali-g77
+TARGET_SOC := exynos990
 TARGET_BOOTLOADER_BOARD_NAME := exynos990
 TARGET_NO_BOOTLOADER := true
-
-# Platform
-TARGET_BOARD_PLATFORM := $(PRODUCT_PLATFORM)
+TARGET_NO_RADIOIMAGE := true
+TARGET_USES_UEFI := true
 
 # Kernel
 TARGET_KERNEL_ARCH := $(TARGET_ARCH)
@@ -46,11 +55,14 @@ BOARD_MKBOOTIMG_ARGS := \
     --header_version 2
 
 BOARD_ROOT_EXTRA_FOLDERS := \
+    cache \
     carrier \
     data_mirror \
     efs \
     keydata \
     keyrefuge \
+    linkerconfig \
+    metadata \
     omr \
     optics \
     prism \
@@ -58,6 +70,14 @@ BOARD_ROOT_EXTRA_FOLDERS := \
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+
+# CPU
+TARGET_IS_64_BIT := true
+TARGET_SUPPORTS_64_BIT_APPS := true
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone7/temp"
+TARGET_CPU_SMP := true
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
@@ -75,7 +95,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_BOOTIMAGE_PARTITION_SIZE := 61865984
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 69009408
-BOARD_HAS_NO_REAL_SDCARD := false
+BOARD_HAS_NO_REAL_SDCARD := true
 TARGET_USES_MKE2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -108,6 +128,12 @@ TARGET_USES_MKE2FS := true
 
 # TWRP specific build flags
 RECOVERY_VARIANT := twrp
+TW_USE_TOOLBOX := true
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
+TW_INCLUDE_FBE_METADATA_DECRYPT := false
+TARGET_OTA_ASSERT_DEVICE := z3s,z3sxxx
+BOARD_SUPPRESS_SECURE_ERASE := true
 TARGET_USES_64_BIT_BINDER := true
 ALLOW_MISSING_DEPENDENCIES=true
 TW_DEVICE_VERSION := JohnnyXT
@@ -115,7 +141,6 @@ TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 25500
 TW_DEFAULT_BRIGHTNESS := 12800
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone7/temp"
 TW_Y_OFFSET := 100
 TW_H_OFFSET := -100
 TW_USE_SAMSUNG_HAPTICS := true
@@ -138,6 +163,7 @@ TW_INCLUDE_LPTOOLS := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 
-#PBRP specific
+# PBRP Specific Build Flags
+PB_DISABLE_DEFAULT_DM_VERITY := true
 PB_TORCH_PATH := "/sys/devices/virtual/camera/flash/rear_flash"
 PB_TORCH_MAX_BRIGHTNESS := 1
