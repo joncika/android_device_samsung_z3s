@@ -13,8 +13,7 @@ on init
     mkdir /sec_efs
 
 on boot
-    setprop ro.boot.vbmeta.avb_version 1.1
-    setprop ro.boot.avb_version 1.1
+    start health-hal-2-1
 
 on fs
     wait /dev/block/platform/${ro.boot.boot_devices}
