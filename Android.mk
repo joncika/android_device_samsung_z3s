@@ -5,9 +5,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+ifneq ($(filter z3s,$(TARGET_DEVICE)),)
+
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),z3s)
 include $(call all-makefiles-under,$(LOCAL_PATH))
-include $(CLEAR_VARS)
+
 endif
