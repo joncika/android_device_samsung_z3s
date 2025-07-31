@@ -1,5 +1,11 @@
 # mount point	fstype		device			device2			flags
 
+# Logical partitions
+system      /system     ext4    wait,logical,first_stage_mount
+vendor      /vendor     ext4    wait,logical,first_stage_mount
+product     /product    ext4    wait,logical,first_stage_mount
+odm         /odm        ext4    wait,logical,first_stage_mount
+
 /boot		      emmc	        /dev/block/bootdevice/by-name/boot
 /dtbo		      emmc	        /dev/block/bootdevice/by-name/dtbo		  flags=backup=1;flashimg=1;display="DTBO"
 /recovery	      emmc	        /dev/block/bootdevice/by-name/recovery		  flags=backup=1
